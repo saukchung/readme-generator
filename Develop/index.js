@@ -8,35 +8,49 @@ const questions = [
   {
     type: "input",
     name: "title",
-    message: "What is the title of this README?",
+    message: `What is the title of this project?
+    `,
   },
 
   //Description Content
   {
     type: "input",
     name: "description",
-    message: "What would you like to put under the Description section?",
+    message: `Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+
+    - What was your motivation?
+    - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
+    - What problem does it solve?
+    - What did you learn?
+    `,
   },
 
   //installation instructions
   {
     type: "input",
     name: "installInformation",
-    message: "Installation instructions?",
+    message: `What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+    `,
   },
 
   //Usage Information
   {
     type: "input",
     name: "usageInformation",
-    message: "Usage Information?",
+    message: `Provide instructions and examples for use. Include screenshots as needed.
+    `,
   },
 
   //Contributions
   {
     type: "input",
     name: "contributionInformation",
-    message: "Contributions?",
+    message: `List your collaborators, if any, with links to their GitHub profiles.
+
+    If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+    
+    If you followed tutorials, include links to those here as well.
+    `,
   },
 
   //Test Instructions
@@ -51,6 +65,7 @@ const questions = [
     type: "list",
     name: "licenseInformation",
     message: "Choose a license?",
+    choices: ["1","2","3","4"]
   },
 
   //GitHub Username
@@ -65,14 +80,28 @@ const questions = [
     type: "input",
     name: "contactEmail",
     message: "Email?",
-  },
+  }
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeReadme(data) {
+    const content = "WORKSSS";
+    fs.writeFile('../OPENME/"README.md', content, err => {
+      if (err) {
+        console.error(err);
+      }
+      else {console.log("Successfully created a README. Check OPENME.")}
+    });
+}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+        .prompt(questions)
+        .then((response) => {
+          writeReadme(response);
+        })
+}
 
 // Function call to initialize app
 init();
