@@ -85,6 +85,7 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeReadme(data) {
+  // String for the README.
     const content = `# ${data.title}
 
 ## Description
@@ -131,6 +132,7 @@ ${data.testInformation}
 Github: ${data.contactGithub}
     
 Email: ${data.contactEmail}`;
+    // Writes the file into the OPENME directory. If error, return error.
     fs.writeFile('../OPENME/"README.md', content, err => {
       if (err) {
         console.error(err);
