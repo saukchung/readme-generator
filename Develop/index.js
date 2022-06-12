@@ -85,7 +85,52 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeReadme(data) {
-    const content = "WORKSSS";
+    const content = `# ${data.title}
+
+## Description
+    
+${data.description}
+    
+  
+## Table of Contents
+ 
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Tests](#tests)
+- [Questions?](#questions)
+    
+    
+## Installation
+    
+${data.installInformation}
+    
+    
+## Usage
+    
+${data.usageInformation}
+    
+    
+## Credits
+    
+${data.contributionInformation}
+    
+  
+## License
+    
+${data.licenseInformation}
+    
+    
+## Tests
+    
+${data.testInformation}
+    
+## Questions
+    
+Github: ${data.contactGithub}
+    
+Email: ${data.contactEmail}`;
     fs.writeFile('../OPENME/"README.md', content, err => {
       if (err) {
         console.error(err);
